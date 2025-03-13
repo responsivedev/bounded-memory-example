@@ -7,6 +7,7 @@
 
 plugins {
     id("java")
+    id("responsive.docker")
 }
 
 repositories {
@@ -24,6 +25,8 @@ dependencies {
     implementation(libs.kstreams)
     implementation(libs.slf4jlog4j2)
 }
+
+responsive_docker.dockerImage.set("bounded-memory-example")
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {

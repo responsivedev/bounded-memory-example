@@ -4,6 +4,7 @@ import java.util.Map;
 import org.apache.kafka.streams.state.RocksDBConfigSetter;
 import org.rocksdb.BlockBasedTableConfig;
 import org.rocksdb.Cache;
+import org.rocksdb.Env;
 import org.rocksdb.LRUCache;
 import org.rocksdb.Options;
 import org.rocksdb.WriteBufferManager;
@@ -29,6 +30,7 @@ public class BoundedMemoryRocksDBConfigSetter implements RocksDBConfigSetter {
     tableConfig.setCacheIndexAndFilterBlocksWithHighPriority(true);
     options.setWriteBufferManager(writeBufferManager);
     // all options share the same global env, so this thread pool is shared across all rocksdbs
+    options.setEnv(Env.getDefault());
     options.getEnv().setBackgroundThreads(
         getLongConfig("bounded_memory_example.rocksdb.bg_threads", configs, 4).intValue());
     options.setTableFormatConfig(tableConfig);
