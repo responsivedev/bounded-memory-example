@@ -4,7 +4,9 @@
 [versions]
 junit-jupiter = "5.10.1"
 kafka = "3.9.0"
+slf4jlog4j2 = "2.20.0"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 kstreams = { module = "org.apache.kafka:kafka-streams", version.ref = "kafka" }
+slf4jlog4j2 = { module = "org.apache.logging.log4j:log4j-slf4j-impl", version.ref = "slf4jlog4j2" }

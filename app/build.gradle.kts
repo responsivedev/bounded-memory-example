@@ -22,6 +22,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.kstreams)
+    implementation(libs.slf4jlog4j2)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
